@@ -9,7 +9,7 @@ import { cards } from '../../data'
 
 const Home = () => {
   return (
-    <div>
+    <div className='home'>
       <Featured />
       <TrustedBY />
       <Slide slidesToShow={5} arrowsScroll={5}>
@@ -56,9 +56,6 @@ const Home = () => {
             <p>
               Find high-quality services at every price point.
             </p>
-          </div>
-          <div className="item">
-            <video src="./img/video.mp4" controls />
           </div>
         </div>
       </div>
