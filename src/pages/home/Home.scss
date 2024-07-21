@@ -1,0 +1,35 @@
+.home {
+  .features {
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    padding: 100px 0px;
+
+    .container {
+      width: 1400px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      .item {
+        &:first-child {
+          flex: 2;
+        }
+
+        &:last-child {
+          flex: 3;
+        }
+
+        h1 {}
+
+        p {}
+
+        .title {}
+
+        .video {
+          width: 720px;
+        }
+      }
+    }
+  }
+}
