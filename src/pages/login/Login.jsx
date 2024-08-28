@@ -4,7 +4,24 @@ import './Login.scss'
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <div className="login">
+      <form>
+        <h1>Sign In</h1>
+        <label htmlFor="">Username</label>
+        <input
+          name="username"
+          type="text"
+          placeholder="johndoe"
+        />
+        <label htmlFor="">Password</label>
+        <input
+          name="password"
+          type="password"
+          placeholder='password'
+        />
+        <button type='submit'>Log In</button>
+      </form>
+    </div>
   )
 }
 
