@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-// import upload from "../../utils/upload";
+import upload from "../../utils/upload";
 import "./Register.scss";
 import newRequest from "../../utils/newRequest";
 import { useNavigate } from "react-router-dom";
+
 
 function Register() {
   const [file, setFile] = useState(null);
@@ -18,6 +19,8 @@ function Register() {
 
 
   const navigate = useNavigate();
+
+  
 
   const handleChange = (e) => {
     setUser((prev) => {
@@ -71,7 +74,7 @@ function Register() {
           <input
             name="country"
             type="text"
-            placeholder="Usa"
+            placeholder="India"
             onChange={handleChange}
           />
           <button type="submit">Register</button>
