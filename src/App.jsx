@@ -13,15 +13,22 @@ import Message from "./pages/message/Message"
 import MyGigs from "./pages/mygigs/MyGigs"
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 import './app.scss'
-function App() {
+import {
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 
+function App() {
+  const queryClient = new QueryClient();
   const Layout = () => {
     return (
       <div className="app">
-        <Navbar />
-        <Outlet />
-        <Footer />
-      </div>
+        <QueryClientProvider client={queryClient}>
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </QueryClientProvider>
+      </div >
     )
   }
 
