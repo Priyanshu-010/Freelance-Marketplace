@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import "./Gigs.scss";
-import { gigs } from "../../data";
+
+import newRequest from "../../utils/newRequest.js";
+import { useQuery } from "@tanstack/react-query";
 import GigCard from "../../components/gigCard/GigCard";
 
 function Gigs() {
@@ -8,6 +10,17 @@ function Gigs() {
   const [open, setOpen] = useState(false);
   const minRef = useRef();
   const maxRef = useRef();
+
+
+  const { isPending, error, data } = useQuery({
+    queryKey: ['repoData'],
+    queryFn: () =>
+      newRequest.get(`/gigs`).then((res) => {
+        return res.data
+      }),
+  })
+  console.log(data);
+
 
   const reSort = (type) => {
     setSort(type);
@@ -53,7 +66,7 @@ function Gigs() {
           </div>
         </div>
         <div className="cards">
-          {gigs.map((gig) => (
+          {isPending   ? "Loading..." : error ? "Something went wrong" : data.map((gig) => (
             <GigCard key={gig.id} item={gig} />
           ))}
         </div>

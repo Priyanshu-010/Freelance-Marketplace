@@ -16,7 +16,8 @@ import './app.scss'
 import {
   QueryClient,
   QueryClientProvider,
-} from "@tanstack/react-query";
+  useQuery,
+} from '@tanstack/react-query'
 
 function App() {
   const queryClient = new QueryClient();
