@@ -12,11 +12,18 @@
   &.active {
     background-color: #fff;
     color: black;
+
+    button {
+      background-color: white !important;
+      color: #008080 !important;
+      border: 1px solid #008080 !important;
+    }
   }
 
   .container {
     width: 1400px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 20px 0px;
 
@@ -27,6 +34,7 @@
       .text {}
 
       .dot {
+        font-weight: bold;
         color: #008080;
       }
     }
@@ -38,6 +46,11 @@
       font-weight: 500;
       cursor: pointer;
       font-family: "Monstserrat", sans-serif;
+
+
+      span {
+        white-space: nowrap;
+      }
 
       .user {
         display: flex;
