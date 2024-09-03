@@ -10,6 +10,7 @@ const Messages = () => {
 
   const queryClient = useQueryClient();
 
+  
   const { isPending, error, data } = useQuery({
     queryKey: ['conversations'],
     queryFn: () =>
