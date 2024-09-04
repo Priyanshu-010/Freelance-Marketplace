@@ -1,7 +1,7 @@
 import React, { useReducer, useState } from "react";
 import "./Add.scss";
 import { gigReducer, INITIAL_STATE } from "../../reducers/gigReducer";
-import upload from "../../utils/upload";
+import upload from "../../utils/upload.js";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 import { useNavigate } from "react-router-dom";
@@ -51,8 +51,13 @@ const Add = () => {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationFn: (gig) => {
-      return newRequest.post("/gigs", gig);
+    mutationFn: async (gig) => {
+      try {
+        return await newRequest.post("/gigs", gig);
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["myGigs"]);
@@ -61,8 +66,12 @@ const Add = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (state.cat === '') {
+      alert('Please select a category');
+      return;
+    }
     mutation.mutate(state);
-    // navigate("/mygigs")
+    navigate("/mygigs")
   };
 
   return (
