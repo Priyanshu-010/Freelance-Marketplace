@@ -20,15 +20,15 @@ function Gig() {
       })
   })
 
-  const userId =data?.userId
+  const userId = data?.userId
 
-  const { isPending: isPendingUser, error : errorUser, data : dataUser } = useQuery({
+  const { isPending: isPendingUser, error: errorUser, data: dataUser } = useQuery({
     queryKey: ['user'],
     queryFn: () =>
       newRequest.get(`/users/${userId}`).then((res) => {
         return res.data;
       }),
-      enabled: !!userId,
+    enabled: !!userId,
   })
 
   return (
@@ -118,12 +118,12 @@ function Gig() {
                 </p>
               </div>
             </div>}
-            <Reviews gigId={id}  />
+            <Reviews gigId={id} />
           </div>
           <div className="right">
             <div className="price">
               <h3>{data.shorTitle}</h3>
-              <h2>$ {data.price}</h2>
+              <h2>&#8377; {data.price}</h2>
             </div>
             <p>
               {data.shortDesc}
