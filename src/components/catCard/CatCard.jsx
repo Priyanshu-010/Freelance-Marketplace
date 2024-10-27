@@ -9,7 +9,7 @@ function CatCard({ card }) {
     return <div>Error: Card data is missing or incomplete</div>;
   }
   return (
-    <Link to="/gigs?cat=design">
+    <Link to="/gigs">
       <div className="catCard">
         <img src={card.img} />
         <span className="desc">{card.desc}</span>

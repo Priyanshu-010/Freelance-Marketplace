@@ -59,10 +59,15 @@ const Add = () => {
     },
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    mutation.mutate(state);
-    // navigate("/mygigs")
+    try {
+      const response = await newRequest.post('/gigs', state);
+      console.log(response);
+    } catch (err) {
+      console.error(err);
+    }
+    // navigate("/mygigs");
   };
 
   return (
